@@ -44,21 +44,33 @@ const Header = () => {
       <nav>
         {username && (
           <>
-            <Link to="/create" className="login">
-              Create new post
-            </Link>
-
-            <a onClick={logout}> Log out</a>
+            <button>
+              {" "}
+              <Link to="/create" className="btn">
+                <a>Add new post</a>
+              </Link>
+            </button>
+            <button>
+              {" "}
+              <a onClick={logout} className="btn">
+                {" "}
+                Log out
+              </a>
+            </button>
           </>
         )}
         {!username && (
           <>
-            <Link to="/login" className="login">
-              Login
-            </Link>
-            <Link to="/register" className="register">
-              Register
-            </Link>
+            <button>
+              <Link to="/login" className="btn">
+                Login
+              </Link>
+            </button>
+            <button>
+              <Link to="/register" className="btn">
+                Register
+              </Link>
+            </button>
           </>
         )}
       </nav>

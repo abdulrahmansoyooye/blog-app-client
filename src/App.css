@@ -16,9 +16,9 @@ img {
 }
 main {
   padding: 50px;
-  max-width: 960px;
+  /* max-width: 960px; */
   margin: 0 auto;
-  border-radius: 10px;
+  border-radius: 15px;
   background-color: rgba(245, 161, 248, 0.123);
 }
 header {
@@ -54,6 +54,7 @@ div.post {
     grid-template-columns: 0.9fr 1.1fr;
   }
 }
+
 h2 {
   color: #2f1c6a;
 }
@@ -105,9 +106,10 @@ button {
   color: #fff;
   border-radius: 5px;
   padding: 10px 10px;
-  font-size: 18px;
+  font-size: 15px;
   transition: background-color 0.3s ease-in;
 }
+
 button:hover {
   background-color: #2f1c6a;
 }
