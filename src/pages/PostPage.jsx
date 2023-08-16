@@ -13,7 +13,7 @@ const PostPage = () => {
     const fetch = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`http://localhost:3001/post/${id}`);
+        const response = await axios.get(`https://zany-rose-cygnet-tam.cyclic.cloud/post/${id}`);
         setLoading(false);
 
         setPost(response.data);
@@ -33,7 +33,7 @@ const PostPage = () => {
           <h1>{post.title}</h1>
           <time>{post.createdAt}</time>
           <div class="image">
-            <img src={"http://localhost:3001/" + post.image} alt="image" />
+            <img src={"https://zany-rose-cygnet-tam.cyclic.cloud/" + post.image} alt="image" />
           </div>
 
           <div dangerouslySetInnerHTML={{ __html: post.content }} />

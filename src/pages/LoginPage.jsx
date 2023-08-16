@@ -21,7 +21,7 @@ const LoginPage = () => {
     setLoading(true);
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3001/login", {
+      const response = await axios.post("https://zany-rose-cygnet-tam.cyclic.cloud/login", {
         username,
         password,
       });

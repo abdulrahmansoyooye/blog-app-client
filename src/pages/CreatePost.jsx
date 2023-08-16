@@ -55,7 +55,7 @@ const CreatePost = () => {
     formData.set("summary", summary);
     try {
       const response = await axios.post(
-        "http://localhost:3001/post",
+        "https://zany-rose-cygnet-tam.cyclic.cloud/post",
         formData,
         {
           headers: {

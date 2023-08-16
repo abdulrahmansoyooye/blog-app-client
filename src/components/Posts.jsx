@@ -7,7 +7,7 @@ const Posts = ({ _id, title, summary, createdAt, author, image }) => {
     <div className="post">
       <div className="image">
         <Link to={`/post/${_id}`}>
-          <img src={"http://localhost:3001/" + image} alt="image" />
+          <img src={"https://zany-rose-cygnet-tam.cyclic.cloud/" + image} alt="image" />
         </Link>
       </div>
 
