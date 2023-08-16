@@ -15,7 +15,7 @@ const Header = () => {
 
     const fetch = async () => {
       try {
-        const response = await axios.get("https://blog-api-mu-two.vercel.app/profile", {
+        const response = await axios.get("http://localhost:3001/profile", {
           headers: {
             Authorization: token,
           },
