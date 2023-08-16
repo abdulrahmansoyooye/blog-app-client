@@ -47,7 +47,7 @@ const Header = () => {
             <button>
               {" "}
               <Link to="/create" className="btn">
-                <a>Add new post</a>
+                <a>Add post</a>
               </Link>
             </button>
             <button>

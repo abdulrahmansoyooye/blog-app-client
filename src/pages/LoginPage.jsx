@@ -40,7 +40,6 @@ const LoginPage = () => {
       }
 
       navigate("/");
-      console.log(userInfo);
     } catch (err) {
       setLoading(false);
       alert("That didn't work, Try later");
