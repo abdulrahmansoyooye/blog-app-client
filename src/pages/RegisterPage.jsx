@@ -14,7 +14,7 @@ const RegisterPage = () => {
     setLoading(true);
     e.preventDefault();
     try {
-      const response = await axios.post("https://zany-rose-cygnet-tam.cyclic.cloud/register", {
+      const response = await axios.post(" https://graceful-tick-kimono.cyclic.cloud/register", {
         username,
         password,
       });

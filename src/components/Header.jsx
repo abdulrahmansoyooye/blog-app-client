@@ -15,7 +15,7 @@ const Header = () => {
 
     const fetch = async () => {
       try {
-        const response = await axios.get("https://zany-rose-cygnet-tam.cyclic.cloud/profile", {
+        const response = await axios.get(" https://graceful-tick-kimono.cyclic.cloud/profile", {
           headers: {
             Authorization: token,
           },
