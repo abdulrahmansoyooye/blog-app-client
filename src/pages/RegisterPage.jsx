@@ -14,7 +14,7 @@ const RegisterPage = () => {
     setLoading(true);
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3001/register", {
+      const response = await axios.post("https://blog-api-mu-two.vercel.app/register", {
         username,
         password,
       });
