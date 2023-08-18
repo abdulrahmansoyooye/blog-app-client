@@ -11,7 +11,7 @@ const IndexPage = () => {
     const fetch = async () => {
       setLoading(true);
       try {
-        const response = await axios.get("https://zany-rose-cygnet-tam.cyclic.cloud/post");
+        const response = await axios.get("https://graceful-tick-kimono.cyclic.cloud/post");
         setPosts(response.data);
         setLoading(false);
       } catch (err) {

@@ -21,7 +21,7 @@ const LoginPage = () => {
     setLoading(true);
     e.preventDefault();
     try {
-      const response = await axios.post(" https://graceful-tick-kimono.cyclic.cloud/login", {
+      const response = await axios.post("https://graceful-tick-kimono.cyclic.cloud/login", {
         username,
         password,
       });

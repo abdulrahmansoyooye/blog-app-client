@@ -15,7 +15,7 @@ const Header = () => {
 
     const fetch = async () => {
       try {
-        const response = await axios.get(" https://graceful-tick-kimono.cyclic.cloud/profile", {
+        const response = await axios.get("https://graceful-tick-kimono.cyclic.cloud/profile", {
           headers: {
             Authorization: token,
           },
@@ -39,24 +39,20 @@ const Header = () => {
   return (
     <header>
       <a href="/" className="logo">
-        Blog
+          Blog
       </a>
       <nav>
         {username && (
           <>
-            <button>
               {" "}
               <Link to="/create" className="btn">
-                <a>Add post</a>
+                <a>Add</a>
               </Link>
-            </button>
-            <button>
               {" "}
               <a onClick={logout} className="btn">
                 {" "}
                 Log out
               </a>
-            </button>
           </>
         )}
         {!username && (

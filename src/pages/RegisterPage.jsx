@@ -14,13 +14,13 @@ const RegisterPage = () => {
     setLoading(true);
     e.preventDefault();
     try {
-      const response = await axios.post(" https://graceful-tick-kimono.cyclic.cloud/register", {
+      const response = await axios.post("https://graceful-tick-kimono.cyclic.cloud/register", {
         username,
         password,
       });
       if (response.status === 200) {
         setLoading(false);
-        alert("You're Registered");
+        alert("You're Registered, Log in to continue.");
 
         navigate("/login");
       }

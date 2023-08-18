@@ -55,7 +55,7 @@ const CreatePost = () => {
     formData.set("summary", summary);
     try {
       const response = await axios.post(
-        " https://graceful-tick-kimono.cyclic.cloud/post",
+        "https://graceful-tick-kimono.cyclic.cloud/post",
         formData,
         {
           headers: {

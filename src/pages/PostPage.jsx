@@ -13,7 +13,7 @@ const PostPage = () => {
     const fetch = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(` https://graceful-tick-kimono.cyclic.cloud/post/${id}`);
+        const response = await axios.get(`https://graceful-tick-kimono.cyclic.cloud/post/${id}`);
         setLoading(false);
 
         setPost(response.data);
@@ -33,7 +33,7 @@ const PostPage = () => {
           <h1>{post.title}</h1>
           <time>{post.createdAt}</time>
           <div class="image">
-            <img src={" https://graceful-tick-kimono.cyclic.cloud/" + post.image} alt="image" />
+            <img src={"https://graceful-tick-kimono.cyclic.cloud/" + post.image} alt="image" />
           </div>
 
           <div dangerouslySetInnerHTML={{ __html: post.content }} />

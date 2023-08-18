@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto:wght@900&display=swap");
 * {
   box-sizing: border-box;
 }
@@ -10,6 +10,8 @@ body {
   color: #222;
   font-family: "Montserrat", sans-serif;
 }
+
+
 img {
   max-width: 100%;
   border-radius: 10px;
@@ -19,7 +21,7 @@ main {
   max-width: 960px;
   margin: 0 auto;
   border-radius: 15px;
-  background-color: rgba(171, 24, 216, 0.082);
+  background-color: rgba(101, 156, 238, 0.068);
 }
 header {
   display: flex;
@@ -97,21 +99,36 @@ input {
   border-radius: 5px;
   background-color: #fff;
 }
-button {
+.btn{
   cursor: pointer;
-  width: 100%;
   display: block;
-  background-color: #6747c7;
+  background-color: #2f1c6a;
   border: 0;
   color: #fff;
   border-radius: 5px;
   padding: 10px 10px;
   font-size: 15px;
-  transition: background-color 0.3s ease-in;
+  transition: background-color 0.2s ease-in;
+  
+}
+.btn:hover {
+  background-color: #6747c7;
+}
+button {
+  cursor: pointer;
+  width: 100%;
+  display: block;
+  background-color: #2f1c6a;
+  border: 0;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 10px;
+  font-size: 15px;
+  transition: background-color 0.2s ease-in;
 }
 
 button:hover {
-  background-color: #2f1c6a;
+  background-color: #6747c7;
 }
 form.login h1,
 form.register h1 {
