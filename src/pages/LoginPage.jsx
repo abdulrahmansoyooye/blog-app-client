@@ -3,6 +3,8 @@ import Loader from "../components/Loader/Loader";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { UserContext } from "../context";
+import Error from "../components/Error/Error";
+import Success from "../components/Success/Success";
 const LoginPage = () => {
   // User name and passsword sent to the server
   const [userData, setUserData] = useState({
@@ -15,6 +17,8 @@ const LoginPage = () => {
   const [loading, setLoading] = useState(false);
   // user info gotten from the server
   const { userInfo, setUserInfo } = useContext(UserContext);
+  const [err,setErr] = useState(false)
+  const [success,SetSuccess] = useState(false)
   const navigate = useNavigate();
   // Logg in User
   async function login(e) {
@@ -36,22 +40,24 @@ const LoginPage = () => {
         setUserInfo({ username, id });
         // Notifying User about successful login
         setLoading(false);
-        alert("You're Logged in");
+        SetSuccess(true)
       }
 
       navigate("/");
     } catch (err) {
       setLoading(false);
-      alert("That didn't work, Try later");
+      setErr(true)
     }
   }
   return (
     <div>
+      
       {loading ? (
         <Loader />
       ) : (
         <form action="" className="login" onSubmit={login}>
           <h1>Login</h1>
+          {err && <Error message={'Try again'}/>}
           <input
             type="text"
             placeholder="username"

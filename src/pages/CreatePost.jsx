@@ -4,6 +4,8 @@ import "react-quill/dist/quill.snow.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Loader from "../components/Loader/Loader";
+import Error from "../components/Error/Error";
+import Success from "../components/Success/Success";
 const modules = {
   toolbar: [
     [{ header: "1" }, { header: "2" }],
@@ -36,7 +38,8 @@ const CreatePost = () => {
   const [summary, setSummary] = useState("");
   const [loading, setLoading] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
-
+  const [err,setErr] = useState(false)
+  const [success,SetSuccess] = useState(false)
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
   };
@@ -66,14 +69,19 @@ const CreatePost = () => {
       );
       if (response.status === 200) {
         setLoading(false);
+        SetSuccess(true)
         navigate("/");
       }
     } catch (err) {
+      setErr(true)
       setLoading(false);
     }
   };
   return (
     <div>
+      
+     {err && <Error message={'Try again, there was an Error'}/>}
+    
       {loading ? (
         <Loader />
       ) : (
