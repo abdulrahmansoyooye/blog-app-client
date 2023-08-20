@@ -34,7 +34,7 @@ const IndexPage = () => {
         </>
       ) : (
        
-        err ? <Error message={'There was an Error.'}/> : posts.map((post) => {
+        err ? <Error message={'There was an Error. Reload the page'}/> : posts.map((post) => {
           
         
           return <Posts key={post._id} {...post} />;

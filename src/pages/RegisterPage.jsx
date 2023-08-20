@@ -43,18 +43,20 @@ const RegisterPage = () => {
       ) : (
         <form action="" className="register" onSubmit={register}>
           <h1>Register</h1>
-          {err && <Error message={'Try again. Try using another username'}/>}
+          {err && <Error message={'Try again with a new username'}/>}
           <input
             type="text"
             placeholder="username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            required
           />
           <input
             type="password"
             placeholder="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
           <button>Register</button>
         </form>

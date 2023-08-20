@@ -57,7 +57,7 @@ const LoginPage = () => {
       ) : (
         <form action="" className="login" onSubmit={login}>
           <h1>Login</h1>
-          {err && <Error message={'Try again. You probably provided the wrong credentials'}/>}
+          {err && <Error message={'You probably provided the wrong credentials'}/>}
           <input
             type="text"
             placeholder="username"
