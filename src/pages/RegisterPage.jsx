@@ -43,7 +43,7 @@ const RegisterPage = () => {
       ) : (
         <form action="" className="register" onSubmit={register}>
           <h1>Register</h1>
-          {err && <Error message={'Try again'}/>}
+          {err && <Error message={'Try again. Try using another username'}/>}
           <input
             type="text"
             placeholder="username"
