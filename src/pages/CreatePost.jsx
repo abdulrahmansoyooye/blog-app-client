@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Loader from "../components/Loader/Loader";
 import Error from "../components/Error/Error";
-import Success from "../components/Success/Success";
 const modules = {
   toolbar: [
     [{ header: "1" }, { header: "2" }],
@@ -62,7 +61,8 @@ const CreatePost = () => {
         formData,
         {
           headers: {
-            Authorization: token,
+            Authorization:token,
+            'Content-Type': 'application/x-www-form-urlencoded',
           },
         }
       );
@@ -84,6 +84,7 @@ const CreatePost = () => {
         <Loader />
       ) : (
         <form onSubmit={createNewPost}>
+           {err && <Error message={'There was an Error. Please Try again'}/>}
           <input
             type="title"
             placeholder="Title"
@@ -96,7 +97,6 @@ const CreatePost = () => {
             value={summary}
             onChange={(e) => setSummary(e.target.value)}
           />
-          {/* Commented for the future */}
           <input type="file" accept="image/*" onChange={handleFileChange} />
           <ReactQuill
             modules={modules}
