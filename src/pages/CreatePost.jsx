@@ -58,11 +58,10 @@ const CreatePost = () => {
     formData.set("summary", summary);
     try {
       const response = await axios.post(
-        "https://graceful-tick-kimono.cyclic.cloud/post",
+        "http://localhost:3001/",
         formData,
         {
           headers: {
-            'Content-Type': 'application/json',
             Authorization: token,
           },
         }
@@ -80,7 +79,6 @@ const CreatePost = () => {
   return (
     <div>
       
-     {err && <Error message={'Try again, there was an Error'}/>}
     
       {loading ? (
         <Loader />
