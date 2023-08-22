@@ -25,13 +25,10 @@ const LoginPage = () => {
     setLoading(true);
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "https://graceful-tick-kimono.cyclic.cloud/login",
-        {
-          username,
-          password,
-        }
-      );
+      const response = await axios.post("http://localhost:3001/login", {
+        username,
+        password,
+      });
       // On success
       if (response.status === 200) {
         // 'token' gotten from server response

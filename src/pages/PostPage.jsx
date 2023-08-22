@@ -18,9 +18,7 @@ const PostPage = () => {
     const fetch = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(
-          `https://graceful-tick-kimono.cyclic.cloud/post/${id}`
-        );
+        const response = await axios.get(`http://localhost:3001/post/${id}`);
         setLoading(false);
         setPost(response.data);
       } catch (err) {
@@ -33,9 +31,7 @@ const PostPage = () => {
   const Delete = async () => {
     setLoading(true);
     try {
-      await axios.delete(
-        `https://graceful-tick-kimono.cyclic.cloud/delete/${id}`
-      );
+      await axios.delete(`http://localhost:3001/delete/${id}`);
       setLoading(false);
       navigate("/");
     } catch (err) {
@@ -52,23 +48,20 @@ const PostPage = () => {
         <>
           <h1>{post.title}</h1>
           <time>{post.createdAt}</time>
+          {err && <Error message={"Cannot Delete. Try again"} />}
           {userInfo.username === post.author && (
             <div className="edit-row">
               <Link to={`/edit/${post._id}`}>
                 <button className="edit-btn">Edit Post</button>
               </Link>
 
-              {err && <Error message={"Cannot Delete. Try again"} />}
               <button onClick={Delete} className="del-btn">
                 Delete
               </button>
             </div>
           )}
           <div class="image">
-            <img
-              src={"https://graceful-tick-kimono.cyclic.cloud/" + post.image}
-              alt="image"
-            />
+            <img src={"http://localhost:3001/" + post.image} alt="image" />
           </div>
 
           <div dangerouslySetInnerHTML={{ __html: post.content }} />

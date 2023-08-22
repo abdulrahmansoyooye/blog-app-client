@@ -19,14 +19,11 @@ const Header = () => {
 
     const fetch = async () => {
       try {
-        const response = await axios.get(
-          "https://graceful-tick-kimono.cyclic.cloud/profile",
-          {
-            headers: {
-              Authorization: token,
-            },
-          }
-        );
+        const response = await axios.get("http://localhost:3001/profile", {
+          headers: {
+            Authorization: token,
+          },
+        });
         // setting user data
 
         const { username, id } = response.data;
@@ -52,7 +49,6 @@ const Header = () => {
       <nav>
         {username && (
           <>
-            <p>{username}</p>
             <input
               type="text"
               placeholder="Search"
@@ -61,12 +57,13 @@ const Header = () => {
               className="search"
             />
             <button className="nav-btn">
-              <Link to="/create">Add</Link>
+              <Link to="/create">Add Post</Link>
             </button>{" "}
             <button onClick={logout} className="nav-btn">
               {" "}
               Log out
             </button>
+            <p>{username}</p>
           </>
         )}
         {!username && (
@@ -85,6 +82,8 @@ const Header = () => {
             <button className="nav-btn">
               <Link to="/register">Register</Link>
             </button>
+
+            <p>{username}</p>
           </>
         )}
       </nav>
