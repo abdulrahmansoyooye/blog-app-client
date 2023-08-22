@@ -51,7 +51,7 @@ const EditPage = () => {
     console.log(title);
     try {
       const response = await axios.put(
-        `http://localhost:3001/post/${id}`,
+        `https://graceful-tick-kimono.cyclic.cloud/post/${id}`,
         formData
       );
       if (response.status === 200) {

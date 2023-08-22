@@ -18,10 +18,13 @@ const RegisterPage = () => {
     setLoading(true);
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3001/register", {
-        username,
-        password,
-      });
+      const response = await axios.post(
+        "https://graceful-tick-kimono.cyclic.cloud/register",
+        {
+          username,
+          password,
+        }
+      );
       if (response.status === 200) {
         setLoading(false);
         SetSuccess(true);

@@ -19,11 +19,14 @@ const Header = () => {
 
     const fetch = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/profile", {
-          headers: {
-            Authorization: token,
-          },
-        });
+        const response = await axios.get(
+          "https://graceful-tick-kimono.cyclic.cloud/profile",
+          {
+            headers: {
+              Authorization: token,
+            },
+          }
+        );
         // setting user data
 
         const { username, id } = response.data;

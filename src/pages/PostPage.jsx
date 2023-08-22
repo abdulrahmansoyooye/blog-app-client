@@ -18,7 +18,9 @@ const PostPage = () => {
     const fetch = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`http://localhost:3001/post/${id}`);
+        const response = await axios.get(
+          `https://graceful-tick-kimono.cyclic.cloud/post/${id}`
+        );
         setLoading(false);
         setPost(response.data);
       } catch (err) {
@@ -31,7 +33,9 @@ const PostPage = () => {
   const Delete = async () => {
     setLoading(true);
     try {
-      await axios.delete(`http://localhost:3001/delete/${id}`);
+      await axios.delete(
+        `https://graceful-tick-kimono.cyclic.cloud/delete/${id}`
+      );
       setLoading(false);
       navigate("/");
     } catch (err) {
@@ -61,7 +65,10 @@ const PostPage = () => {
             </div>
           )}
           <div class="image">
-            <img src={"http://localhost:3001/" + post.image} alt="image" />
+            <img
+              src={"https://graceful-tick-kimono.cyclic.cloud/" + post.image}
+              alt="image"
+            />
           </div>
 
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
