@@ -10,32 +10,34 @@ const RegisterPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [err,setErr] = useState(false)
-  const [success,SetSuccess] = useState(false)
+  const [err, setErr] = useState(false);
+  const [success, SetSuccess] = useState(false);
   const navigate = useNavigate();
 
   async function register(e) {
     setLoading(true);
     e.preventDefault();
     try {
-      const response = await axios.post("https://graceful-tick-kimono.cyclic.cloud/register", {
-        username,
-        password,
-      });
+      const response = await axios.post(
+        "https://graceful-tick-kimono.cyclic.cloud/register",
+        {
+          username,
+          password,
+        }
+      );
       if (response.status === 200) {
         setLoading(false);
-        SetSuccess(true)
+        SetSuccess(true);
 
         navigate("/login");
       }
     } catch (err) {
       setLoading(false);
-      setErr(true)
+      setErr(true);
     }
   }
   return (
     <>
-        
       {loading ? (
         <>
           <Loader />
@@ -43,7 +45,7 @@ const RegisterPage = () => {
       ) : (
         <form action="" className="register" onSubmit={register}>
           <h1>Register</h1>
-          {err && <Error message={'Try again with a new username'}/>}
+          {err && <Error message={"Try again with a new username"} />}
           <input
             type="text"
             placeholder="username"

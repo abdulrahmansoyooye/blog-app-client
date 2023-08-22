@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import Loader from "../components/Loader/Loader";
-import Error from "../components/Error/Error";
+import Loader from "../components/Loader/Loader.jsx";
+import ReactQuill from "react-quill";
+import Error from "../components/Error/Error.jsx";
 const modules = {
   toolbar: [
     [{ header: "1" }, { header: "2" }],
@@ -14,6 +13,7 @@ const modules = {
     ["clean"],
   ],
 };
+
 const formats = [
   "header",
   "font",
@@ -29,45 +29,34 @@ const formats = [
   "image",
   "video",
 ];
-const CreatePost = () => {
+const EditPage = () => {
+  const { id } = useParams();
   const navigate = useNavigate();
   const [content, setContent] = useState("");
   const [title, setTitle] = useState("");
   const [summary, setSummary] = useState("");
   const [loading, setLoading] = useState(false);
-  const [selectedFile, setSelectedFile] = useState(null);
+
   const [err, setErr] = useState(false);
-  const [success, SetSuccess] = useState(false);
-  const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
-  };
 
-  const createNewPost = async (e) => {
+  const EditPost = async (e) => {
     setLoading(true);
-
     e.preventDefault();
-    const token = localStorage.getItem("token");
 
     const formData = new FormData();
+    formData.append("title", title);
+    formData.append("summary", summary);
+    formData.append("content", content);
 
-    formData.append("image", selectedFile);
-    formData.set("title", title);
-    formData.set("content", content);
-    formData.set("summary", summary);
+    console.log(title);
     try {
-      const response = await axios.post(
-        "https://graceful-tick-kimono.cyclic.cloud/post",
-        formData,
-        {
-          headers: {
-            Authorization: token,
-          },
-        }
+      const response = await axios.put(
+        `https://graceful-tick-kimono.cyclic.cloud/post/${id}`,
+        formData
       );
       if (response.status === 200) {
         setLoading(false);
-        SetSuccess(true);
-        navigate("/");
+        navigate(`/post/${id}`);
       }
     } catch (err) {
       setErr(true);
@@ -79,7 +68,7 @@ const CreatePost = () => {
       {loading ? (
         <Loader />
       ) : (
-        <form onSubmit={createNewPost}>
+        <form onSubmit={EditPost}>
           {err && <Error message={"There was an Error. Please Try again"} />}
           <input
             type="title"
@@ -93,12 +82,7 @@ const CreatePost = () => {
             value={summary}
             onChange={(e) => setSummary(e.target.value)}
           />
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleFileChange}
-            required
-          />
+
           <ReactQuill
             modules={modules}
             formats={formats}
@@ -112,4 +96,4 @@ const CreatePost = () => {
   );
 };
 
-export default CreatePost;
+export default EditPage;

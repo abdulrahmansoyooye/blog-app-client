@@ -5,8 +5,12 @@ import { useContext } from "react";
 import { UserContext } from "../context";
 const Header = () => {
   // User Logged  in user's information
-  const { userInfo, setUserInfo } = useContext(UserContext);
+  const { userInfo, setUserInfo, setSearch, search } = useContext(UserContext);
+  const [isResponsive, setIsResponsive] = useState(true);
 
+  const toggleResponsive = () => {
+    setIsResponsive(!isResponsive);
+  };
   const username = userInfo?.username;
   // Fetch the user info from server
   useEffect(() => {
@@ -15,11 +19,14 @@ const Header = () => {
 
     const fetch = async () => {
       try {
-        const response = await axios.get("https://graceful-tick-kimono.cyclic.cloud/profile", {
-          headers: {
-            Authorization: token,
-          },
-        });
+        const response = await axios.get(
+          "https://graceful-tick-kimono.cyclic.cloud/profile",
+          {
+            headers: {
+              Authorization: token,
+            },
+          }
+        );
         // setting user data
 
         const { username, id } = response.data;
@@ -37,39 +44,53 @@ const Header = () => {
     setUserInfo({});
   };
   return (
-    <header>
+    <header className={`header ${isResponsive ? "responsive" : ""}`}>
       <a href="/" className="logo">
-          Blog
+        Daily Blog
       </a>
+
       <nav>
         {username && (
           <>
+            <p>{username}</p>
+            <input
+              type="text"
+              placeholder="Search"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="search"
+            />
+            <button className="nav-btn">
+              <Link to="/create">Add</Link>
+            </button>{" "}
+            <button onClick={logout} className="nav-btn">
               {" "}
-              <Link to="/create" className="btn">
-                <a>Add</a>
-              </Link>
-              {" "}
-              <a onClick={logout} className="btn">
-                {" "}
-                Log out
-              </a>
+              Log out
+            </button>
           </>
         )}
         {!username && (
           <>
-            <button>
-              <Link to="/login" className="btn">
-                Login
-              </Link>
+            <p>{username}</p>
+            <input
+              type="text"
+              placeholder="Search"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="search"
+            />
+            <button className="nav-btn">
+              <Link to="/login">Login</Link>
             </button>
-            <button>
-              <Link to="/register" className="btn">
-                Register
-              </Link>
+            <button className="nav-btn">
+              <Link to="/register">Register</Link>
             </button>
           </>
         )}
       </nav>
+      <button className="icon" onClick={toggleResponsive}>
+        &#9776;
+      </button>
     </header>
   );
 };

@@ -12,7 +12,7 @@
 
 /* Center the spinner animation within the overlay */
 .loader-spinner {
-  border: 4px solid rgba(244, 120, 255, 0.171); /* Spinner border color */
+  border: 4px solid rgba(120, 167, 255, 0.315); /* Spinner border color */
   border-top: 4px solid #6747c7; /* Spinner top border color */
   border-radius: 50%;
   width: 30px;

@@ -17,18 +17,21 @@ const LoginPage = () => {
   const [loading, setLoading] = useState(false);
   // user info gotten from the server
   const { userInfo, setUserInfo } = useContext(UserContext);
-  const [err,setErr] = useState(false)
-  const [success,SetSuccess] = useState(false)
+  const [err, setErr] = useState(false);
+  const [success, SetSuccess] = useState(false);
   const navigate = useNavigate();
   // Logg in User
   async function login(e) {
     setLoading(true);
     e.preventDefault();
     try {
-      const response = await axios.post("https://graceful-tick-kimono.cyclic.cloud/login", {
-        username,
-        password,
-      });
+      const response = await axios.post(
+        "https://graceful-tick-kimono.cyclic.cloud/login",
+        {
+          username,
+          password,
+        }
+      );
       // On success
       if (response.status === 200) {
         // 'token' gotten from server response
@@ -40,24 +43,25 @@ const LoginPage = () => {
         setUserInfo({ username, id });
         // Notifying User about successful login
         setLoading(false);
-        SetSuccess(true)
+        SetSuccess(true);
       }
 
       navigate("/");
     } catch (err) {
       setLoading(false);
-      setErr(true)
+      setErr(true);
     }
   }
   return (
     <div>
-      
       {loading ? (
         <Loader />
       ) : (
         <form action="" className="login" onSubmit={login}>
           <h1>Login</h1>
-          {err && <Error message={'You probably provided the wrong credentials'}/>}
+          {err && (
+            <Error message={"You probably provided the wrong credentials"} />
+          )}
           <input
             type="text"
             placeholder="username"

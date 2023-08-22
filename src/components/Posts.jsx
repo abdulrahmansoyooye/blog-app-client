@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { format } from "date-fns";
 import { Link } from "react-router-dom";
+import { UserContext } from "../context";
 
 const Posts = ({ _id, title, summary, createdAt, author, image }) => {
   return (
     <div className="post">
       <div className="image">
         <Link to={`/post/${_id}`}>
-          <img src={"https://graceful-tick-kimono.cyclic.cloud/" + image} alt="image" />
+          <img
+            src={"https://graceful-tick-kimono.cyclic.cloud/" + image}
+            alt="image"
+          />
         </Link>
       </div>
 

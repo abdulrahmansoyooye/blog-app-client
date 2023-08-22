@@ -11,26 +11,28 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-
 img {
   max-width: 100%;
   border-radius: 10px;
 }
 main {
-  padding: 50px;
-  max-width: 960px;
+  padding: 30px;
+  max-width: 1000px;
   margin: 0 auto;
   border-radius: 15px;
   background-color: rgba(101, 156, 238, 0.068);
 }
 header {
+  overflow: hidden;
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  align-items: center;
+  padding: 10px 20px;
   margin-bottom: 50px;
   align-items: center;
   font-family: "Roboto", sans-serif;
   color: #2f1c6a;
+  width: 100%;
 }
 header a {
   text-decoration: none;
@@ -42,7 +44,10 @@ header a.logo {
 }
 header nav {
   display: flex;
-  gap: 24px;
+  width: 40%;
+  gap: 10px;
+  justify-content: center;
+  overflow: hidden;
 }
 
 div.post {
@@ -56,7 +61,46 @@ div.post {
     grid-template-columns: 0.9fr 1.1fr;
   }
 }
+.icon {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  background-color: #2f1c6a;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+@media screen and (max-width: 600px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 100px;
+    right: 30px;
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 10px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    margin-top: 10px;
+  }
 
+  .search {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .icon {
+    display: block;
+  }
+
+  .header.responsive nav {
+    display: none;
+  }
+}
 h2 {
   color: #2f1c6a;
 }
@@ -99,32 +143,26 @@ input {
   border-radius: 5px;
   background-color: #fff;
 }
-.btn{
-  cursor: pointer;
+
+button:not(.icon) {
+  float: left;
   display: block;
-  background-color: #2f1c6a;
-  border: 0;
-  color: #fff;
-  border-radius: 5px;
-  padding: 10px 10px;
-  font-size: 15px;
-  transition: background-color 0.2s ease-in;
-  
-}
-.btn:hover {
-  background-color: #6747c7;
-}
-button {
+  text-align: center;
+  padding: 8px 12px;
   cursor: pointer;
   width: 100%;
-  display: block;
   background-color: #2f1c6a;
   border: 0;
   color: #fff;
   border-radius: 5px;
-  padding: 10px 10px;
   font-size: 15px;
   transition: background-color 0.2s ease-in;
+}
+.nav-btn {
+  width: 50%;
+}
+button:hover {
+  background-color: #6747c7;
 }
 .error-message {
   color: #d9534f; /* Red color for the error message */
@@ -134,6 +172,21 @@ button {
   align-items: center;
   gap: 5px;
   margin: 0 auto;
+}
+.search {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+  border-radius: 20px;
+  background-color: #fff;
+}
+.del-btn {
+  background-color: #ee4d48;
+  margin: 20px 0;
+}
+.del-btn:hover {
+  background-color: #d9534f;
 }
 
 /* Define the animation keyframes */
@@ -167,9 +220,7 @@ button {
     transform: translateY(0);
   }
 } */
-button:hover {
-  background-color: #6747c7;
-}
+
 form.login h1,
 form.register h1 {
   text-align: center;
@@ -218,16 +269,7 @@ div.edit-row {
   text-align: center;
   margin-bottom: 20px;
 }
-div.post-page a.edit-btn {
-  background-color: #333;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  color: #fff;
-  padding: 15px 30px;
-  border-radius: 5px;
-  text-decoration: none;
-}
+
 a svg {
   height: 20px;
 }
